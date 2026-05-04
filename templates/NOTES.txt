@@ -1,0 +1,18 @@
+EOEPCA Deployment Playground
+{{- if .Release.IsInstall }}
+Thanks for installing.
+{{- end }}
+{{- $ws := "localhost:" }}
+{{- range $index, $namespace := (lookup "v1" "Namespace" "" "").items }}
+  {{- if (contains (substr 0 3 $namespace.metadata.name) "ws-" ) }}
+  {{- $ws = (printf "editor-%s-default.ngx.develop.eoepca.org/proxy/" $namespace.metadata.name) }}
+  {{- end }}
+{{- end }}
+
+For easy access just do a port forward:
+    kubectl port-forward svc/flowset-control-app-service {{ .Values.flowset.control.server.port }}:8081
+
+You can then access the web interface on:
+    https://{{ $ws }}8081/login 
+
+Without the "/login" part you are redirected to your Datalab for some reason.

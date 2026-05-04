@@ -4,7 +4,6 @@ kind: Deployment
 metadata: 
   name: flowset-control-app
 spec:
-  #replicas: 1
   selector:
     matchLabels:
       app: flowset-control-app
@@ -18,7 +17,7 @@ spec:
           image: flowset/flowset-control-community:latest
           env:
             - name: MAIN_DATASOURCE_URL
-              value: "jdbc:postgresql://flowset-control-database/{{ .Values.flowset.control.db.name }}"
+              value: "jdbc:postgresql://flowset-control-database-service/{{ .Values.flowset.control.db.name }}"
             - name: MAIN_DATASOURCE_USERNAME
               value: {{ .Values.flowset.control.db.username }}
             - name: MAIN_DATASOURCE_PASSWORD
@@ -32,14 +31,12 @@ spec:
           ports:
             - containerPort: {{ .Values.flowset.control.server.port }}
           
-
 ---
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: flowset-control-database
 spec:
-  #replicas: 1
   selector:
     matchLabels:
       app: flowset-control-database
