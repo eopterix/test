@@ -1,0 +1,12 @@
+flowset:
+  control:
+    db:
+      username: root
+      password: root
+      name: flowset-control
+    server: 
+      port: 8081
+    ui:
+      default:
+        username: ""
+        password: ""
