@@ -31,3 +31,20 @@ To check the available versions of the Flowset chart, use the following command:
 ```shell
 helm search repo flowset --devel
 ```
+
+The output should be something like:
+
+```
+NAME                    CHART VERSION   APP VERSION     DESCRIPTION
+flowset/flowset-control 0.1.0           1.16.0          Helm chart for Flowset
+```
+
+Note: The `--devel` flag includes development versions in the search results. Without this flag, only stable versions will be listed.
+
+### Install a Specific Version
+
+To install a specific version from the list above, use:
+
+```shell
+helm install flowset-control flowset/flowset-control --version 0.1.0
+```
