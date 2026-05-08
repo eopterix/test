@@ -1,0 +1,15 @@
+apiVersion: v1
+entries:
+  flowset-control:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2026-05-08T09:35:21.868827944Z"
+    description: A Helm chart for Kubernetes
+    digest: 5bdc294015891ce78d9f8e4be7c46aab9af38ca4007cb73a08d4b63486d351fd
+    icon: https://avatars.githubusercontent.com/u/185957921
+    name: flowset-control
+    type: application
+    urls:
+    - https://github.com/eopterix/test/releases/download/flowset-control-0.1.0/flowset-control-0.1.0.tgz
+    version: 0.1.0
+generated: "2026-05-08T09:35:21.868833163Z"
